@@ -1,16 +1,22 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useAuthStore } from '../../libs/stores/useAuthStore'
 import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
-  const { login } = useAuthStore()
+  const { login, isLoggedIn } = useAuthStore()
   const router = useRouter()
 
   const handleLogin = () => {
     login()
     router.push('/dashboard')
   }
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push('/dashboard')
+    }
+  }, [isLoggedIn, router])
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-center p-24'>
