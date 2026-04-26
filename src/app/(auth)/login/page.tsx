@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useAuthStore } from '../../libs/stores/useAuthStore'
+import { useAuthStore } from '../../../libs/stores/useAuthStore'
 import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
